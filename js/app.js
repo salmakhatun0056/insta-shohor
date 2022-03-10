@@ -31,16 +31,21 @@ const displayContent = (text) => {
 };
 
 const switchTab = (id) => {
+  const likedContainer = document.getElementById('liked')
+  let reportContainer = document.getElementById('reported')
+  reportContainer.innerText = ''
+  likedContainer.innerText = ''
   if (id === "posts") {
     document.getElementById("posts").style.display = "grid";
     document.getElementById("liked").style.display = "none";
     document.getElementById("reported").style.display = "none";
+
   } else if (id === "liked") {
     document.getElementById("liked").style.display = "block";
     document.getElementById("posts").style.display = "none";
     document.getElementById("reported").style.display = "none";
-
     displayLikedPosts();
+
   } else {
     document.getElementById("reported").style.display = "block";
     document.getElementById("posts").style.display = "none";
@@ -129,6 +134,8 @@ const createPost = (post) => {
 
 const showPosts = (posts) => {
   const productsContainer = document.getElementById("posts");
+  // let likedContainer = document.getElementById("liked");
+  // likedContainer = ''
   productsContainer.innerHTML = "";
 
   posts.forEach((post) => {
